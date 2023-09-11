@@ -1,14 +1,19 @@
 package com.example.fizzbuzzproblem;
 
 import com.google.gson.Gson;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.IllegalFormatException;
 import java.util.List;
 
-
+@RestController
 public class fizzbuzz {
-    public static List<String> fizzBuzz(int n) {      //Der Rückgabewert ist als List<String> initialisiert worden und die Methode enthält einen int Parameter n
+
+    @GetMapping("/fizzbuzz")
+    public static List<String> fizzBuzz(@RequestParam int n) {      //Der Rückgabewert ist als List<String> initialisiert worden und die Methode enthält einen int Parameter n
 
         try {
             if(n < 1) {  //Abfangen von eingegebenen Zahlen kleiner 1
@@ -47,7 +52,7 @@ public class fizzbuzz {
         int test15 = 15;        //fizzbuzz test
         int test100 = 100;      //test mit einer größeren Zahl zur Veranschaulichung
 
-        System.out.print(fizzBuzz(testNegative5));
+        System.out.print(fizzBuzz(test100));
     }
 
 }
