@@ -1,6 +1,5 @@
 package com.example.fizzbuzzproblem;
 
-import com.google.gson.Gson;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -34,8 +33,7 @@ public class fizzbuzz {
                     result.add(Integer.toString(x));       //die nächste Zahl wird der Liste hinzugefügt falls die oberen Fälle nicht zutreffen
                 }
             }
-            String json = new Gson().toJson(result);       //hier ändern wir das Format der Liste zum JsonFormat mittels der GSON Bibliothek
-            return Collections.singletonList(json);        //zuletzt wird die Liste im JsonFormat ausgegeben
+            return result;
         } catch (IllegalArgumentException e) {   //DIe Exception wird hier aufgefangen und behandelt.
             return Collections.singletonList("Es wurde eine ungültige Zahl eingegeben: " + e.getMessage());
         }
